@@ -35,7 +35,7 @@ The workflow uses GitHub-hosted runners and does not require deployment credenti
 ## Current limitations
 
 - The repository does not yet contain a Gradle wrapper; CI installs the pinned Gradle version directly.
-- A successful CI run has not yet been observed. Treat the workflow as configured, not verified, until GitHub Actions reports a green run.
+- First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21). The Android debug unit-test task, debug APK assembly and artifact upload all passed. Physical-device validation remains outstanding.
 - Physical-device validation remains a local acceptance step. A hosted Linux runner cannot prove the app behaves correctly on the owner's Android hardware.
 
 ## Future improvements

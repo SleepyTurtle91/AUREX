@@ -26,14 +26,14 @@ These are intentionally deferred to keep the first compile surface small and to 
 | Component | Version | Reason |
 |---|---:|---|
 | Kotlin / KMP | 2.4.21 | Stable Kotlin release |
-| Compose Multiplatform | 1.12.2 | Stable release |
+| Compose Multiplatform | 1.11.1 | Stable release; uses Jetpack Compose 1.11.2, retaining the API 36 / AGP 8.13 toolchain |
 | Android Gradle Plugin | 8.13.2 | Conservative supported AGP line |
 | Gradle | 8.13 | Compatible baseline |
 | Koin | 4.2.2 | Stable KMP DI line |
 | Android compile SDK | 36 | Current Android API baseline |
 | Android min SDK | 26 | Avoid carrying legacy device support in the initial POC |
 
-Versions are centralized in `gradle/libs.versions.toml`. Revalidate the matrix before upgrades.
+Compose Multiplatform 1.12.x maps to Jetpack Compose 1.12.x, which requires compile SDK 37 and AGP 9. This POC deliberately stays on Compose Multiplatform 1.11.1 with AGP 8.13.2 and compile SDK 36, avoiding a wider toolchain migration before the Android foundation has a verified baseline. Kotlin 2.4.21 supports the selected Gradle and AGP range. Versions are centralized in `gradle/libs.versions.toml`; revalidate the matrix before upgrades.
 
 ## Local setup
 

@@ -66,7 +66,7 @@ The Android application ID is `com.aurex.app`.
 ./scripts/android-smoke-test.sh
 ```
 
-The script builds the debug APK when it is missing, installs it with ADB, and sends the launch intent. When multiple Android devices are connected, set `ANDROID_SERIAL` to the intended device serial before running the script. Confirm that the welcome screen displays AUREX, `Business. Connected.`, and the foundation status message.
+The script always rebuilds the debug APK from the current checkout, installs it with ADB, and sends the launch intent so a stale APK cannot be installed by accident. When multiple Android devices are connected, set `ANDROID_SERIAL` to the intended device serial before running the script. Confirm that the welcome screen displays AUREX, `Business. Connected.`, and the foundation status message.
 
 ## Continuous integration
 

@@ -74,6 +74,6 @@ GitHub Actions is configured in `.github/workflows/android-ci.yml` to run common
 - [ ] Shared Compose screen renders.
 - [ ] Koin resolves `FoundationStatus` from common code.
 - [ ] Room KMP database proof-of-concept passes separately.
-- [ ] GitHub Actions CI completes successfully on a pull request.
+- [x] GitHub Actions CI completes successfully on a pull request (verified on 2026-11-21; see workflow run 44867686852).
 
 Do not mark an item complete without a recorded build or device-test result.

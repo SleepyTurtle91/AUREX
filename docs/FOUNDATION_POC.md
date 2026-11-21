@@ -70,7 +70,7 @@ The script always rebuilds the debug APK from the current checkout, installs it 
 
 ## Continuous integration
 
-GitHub Actions has successfully verified the checked-in Gradle Wrapper, smoke-test script syntax, Android unit-test variant (including `commonTest`), debug APK assembly and artifact upload on commit `bbcf097ff1aaeca0300bf2fe4d90b0ef20b930b9` (run [44868709823](https://github.com/SleepyTurtle91/AUREX/actions/runs/44868709823)). See [CI documentation](CI.md).
+GitHub Actions has successfully verified the checked-in Gradle Wrapper, smoke-test script syntax, Android unit-test variant (including `commonTest`), debug APK assembly and artifact upload on commit `c40b4574b41d6b361535bdd67603bb74114eea9f` (run [44869019001](https://github.com/SleepyTurtle91/AUREX/actions/runs/44869019001)). See [CI documentation](CI.md).
 
 ## Acceptance checklist
 
@@ -82,6 +82,6 @@ GitHub Actions has successfully verified the checked-in Gradle Wrapper, smoke-te
 - [ ] Shared Compose screen renders.
 - [ ] Koin resolves `FoundationStatus` from common code.
 - [ ] Room KMP database proof-of-concept passes separately.
-- [x] GitHub Actions CI completes successfully on a pull request (verified on 2026-11-21; see latest wrapper-based workflow run 44868709823).
+- [x] GitHub Actions CI completes successfully on a pull request (verified on 2026-11-21; see latest wrapper-based workflow run 44869019001).
 
 Do not mark an item complete without a recorded build or device-test result.

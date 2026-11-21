@@ -38,7 +38,7 @@ The workflow uses GitHub-hosted runners and does not require deployment credenti
 ## Current limitations
 
 - First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21).
-- Latest CI validation: commit `bbcf097ff1aaeca0300bf2fe4d90b0ef20b930b9`, workflow run [44868709823](https://github.com/SleepyTurtle91/AUREX/actions/runs/44868709823) (2026-11-21). Wrapper JAR checksum verification, smoke-test script syntax check, Android unit tests, debug APK assembly and artifact upload all passed.
+- Latest CI validation: commit `c40b4574b41d6b361535bdd67603bb74114eea9f`, workflow run [44869019001](https://github.com/SleepyTurtle91/AUREX/actions/runs/44869019001) (2026-11-21). Wrapper JAR checksum verification, smoke-test script syntax check, Android unit tests, debug APK assembly and artifact upload all passed.
 - Physical-device validation remains a local acceptance step. A hosted Linux runner cannot prove the app behaves correctly on the owner's Android hardware.
 
 ## Future improvements

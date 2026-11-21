@@ -14,8 +14,8 @@ This roadmap is directional. A checkbox is only completed when implementation an
 - [ ] Define tenant, company, branch, location and terminal vocabulary.
 - [ ] Define core domain map and bounded contexts.
 - [ ] Define security, audit and data-retention baseline.
-- [ ] Validate Room KMP on intended targets and test migration strategy.
-- [ ] Select a multiplatform exact-decimal implementation for shared financial rules.
+- [ ] Validate Room KMP on intended targets and test migration strategy (candidate and POC acceptance criteria documented in [ADR 0005](docs/adr/0005-room-kmp-persistence-evaluation.md)).
+- [ ] Select a multiplatform exact-decimal implementation for shared financial rules (candidate bake-off and test contract documented in [ADR 0006](docs/adr/0006-decimal-implementation-evaluation.md)).
 - [ ] Decide backend deployment topology and API boundaries.
 - [x] Pin a compatible Kotlin, Gradle, Compose and Android toolchain; validate it with a clean CI build.
 - [x] Define CI build and test gates.

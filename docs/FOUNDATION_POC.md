@@ -56,6 +56,10 @@ adb install -r composeApp/build/outputs/apk/debug/composeApp-debug.apk
 
 The Android application ID is `com.aurex.app`.
 
+## Automated Android UI smoke test
+
+GitHub Actions runs an instrumented UI test on an API 36 Android emulator. It launches the actual `MainActivity`, exercises the manifest-registered `AurexApplication` and Koin startup, and asserts that the three foundation welcome-screen texts are visible. This is a UI launch regression test, not a substitute for hardware-specific physical-device validation.
+
 ## Physical-device smoke test
 
 1. Enable USB debugging on an Android phone or tablet and connect it to the development computer.
@@ -78,6 +82,7 @@ GitHub Actions has successfully verified the checked-in Gradle Wrapper, smoke-te
 - [ ] Gradle project imports without sync errors.
 - [x] Common test passes in the Android debug unit-test variant.
 - [x] Android debug APK builds in CI.
+- [x] App launches and renders the AUREX welcome screen in the CI Android emulator (verified by instrumented UI test; latest run to be recorded after CI).
 - [ ] App launches on a physical Android device using `scripts/android-smoke-test.sh`.
 - [ ] Shared Compose screen renders.
 - [ ] Koin resolves `FoundationStatus` from common code.

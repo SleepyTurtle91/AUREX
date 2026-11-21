@@ -23,6 +23,12 @@ kotlin {
             implementation(kotlin("test"))
         }
 
+        androidInstrumentedTest.dependencies {
+            implementation(libs.androidx.compose.ui.test.junit4)
+            implementation(libs.androidx.test.runner)
+            implementation(libs.androidx.test.ext.junit)
+        }
+
         androidMain.dependencies {
             implementation(libs.androidx.activity.compose)
         }
@@ -37,6 +43,7 @@ android {
         applicationId = "com.aurex.app"
         minSdk = 26
         targetSdk = 36
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         versionCode = 1
         versionName = "0.1.0"
     }

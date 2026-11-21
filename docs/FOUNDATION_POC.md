@@ -45,11 +45,11 @@ If Gradle is installed locally, generate the wrapper from the repository root:
 gradle wrapper --gradle-version 8.13 --distribution-type bin
 ```
 
-Then verify:
+Then verify. This foundation currently declares Android as its only target, so run the Android debug unit-test variant; an aggregate `allTests` task is not generated for this module configuration.
 
 ```bash
 ./gradlew :composeApp:tasks
-./gradlew :composeApp:allTests
+./gradlew :composeApp:testDebugUnitTest
 ./gradlew :composeApp:assembleDebug
 ```
 

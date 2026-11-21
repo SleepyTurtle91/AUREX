@@ -47,6 +47,9 @@ jobs:
         with:
           gradle-version: '8.13'
 
+      - name: Inspect generated Gradle tasks
+        run: gradle :composeApp:tasks --all
+
       - name: Run common and platform tests
         run: gradle :composeApp:allTests --stacktrace --info
 

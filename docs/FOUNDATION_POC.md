@@ -61,6 +61,10 @@ adb install -r composeApp/build/outputs/apk/debug/composeApp-debug.apk
 
 The Android application ID is `com.aurex.app`.
 
+## Continuous integration
+
+GitHub Actions is configured in `.github/workflows/android-ci.yml` to run common/platform tests and assemble a debug APK for pull requests and pushes. The first green run is still required before CI is considered verified. See [CI documentation](CI.md).
+
 ## Acceptance checklist
 
 - [ ] Gradle project imports without sync errors.
@@ -70,6 +74,6 @@ The Android application ID is `com.aurex.app`.
 - [ ] Shared Compose screen renders.
 - [ ] Koin resolves `FoundationStatus` from common code.
 - [ ] Room KMP database proof-of-concept passes separately.
-- [ ] CI reproduces the build and common tests.
+- [ ] GitHub Actions CI completes successfully on a pull request.
 
 Do not mark an item complete without a recorded build or device-test result.

@@ -39,15 +39,10 @@ Compose Multiplatform 1.12.x maps to Jetpack Compose 1.12.x, which requires comp
 
 Use JDK 17 or newer and Android SDK Platform 36.
 
-If Gradle is installed locally, generate the wrapper from the repository root:
+The Gradle Wrapper is committed and pins Gradle 8.13 with a verified distribution checksum. No system Gradle installation is required. This foundation currently declares Android as its only target, so run the Android debug unit-test variant; an aggregate `allTests` task is not generated for this module configuration.
 
 ```bash
-gradle wrapper --gradle-version 8.13 --distribution-type bin
-```
-
-Then verify. This foundation currently declares Android as its only target, so run the Android debug unit-test variant; an aggregate `allTests` task is not generated for this module configuration.
-
-```bash
+./gradlew --version
 ./gradlew :composeApp:tasks
 ./gradlew :composeApp:testDebugUnitTest
 ./gradlew :composeApp:assembleDebug
@@ -67,6 +62,7 @@ GitHub Actions is configured in `.github/workflows/android-ci.yml` to run common
 
 ## Acceptance checklist
 
+- [x] Gradle Wrapper is committed with verified JAR and distribution checksums.
 - [ ] Gradle project imports without sync errors.
 - [ ] Common test passes.
 - [ ] Android debug APK builds.

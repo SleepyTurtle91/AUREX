@@ -15,12 +15,13 @@ Triggers:
 
 Checks:
 1. Set up JDK 17 and Android SDK Platform 36.
-2. Install Gradle 8.13 through the Gradle setup action.
-3. Run Android host-side unit tests, including the `commonTest` source set, with `gradle :composeApp:testDebugUnitTest`.
-4. Build the Android debug APK with `gradle :composeApp:assembleDebug`.
-5. Upload the debug APK as a seven-day workflow artifact.
+2. Verify the checked-in Gradle Wrapper JAR against Gradle's published SHA-256 checksum.
+3. Use the pinned Gradle 8.13 distribution through `./gradlew`; its distribution SHA-256 is pinned in `gradle/wrapper/gradle-wrapper.properties`.
+4. Run Android host-side unit tests, including the `commonTest` source set, with `./gradlew :composeApp:testDebugUnitTest`.
+5. Build the Android debug APK with `./gradlew :composeApp:assembleDebug`.
+6. Upload the debug APK as a seven-day workflow artifact.
 
-The workflow uses GitHub-hosted runners and does not require deployment credentials, signing keys or paid external services.
+The workflow uses GitHub-hosted runners and does not require deployment credentials, signing keys or paid external services. The Gradle setup action caches wrapper distributions and dependencies.
 
 ## Cost and security rules
 
@@ -31,17 +32,16 @@ The workflow uses GitHub-hosted runners and does not require deployment credenti
 - Cancel superseded runs on the same branch.
 - Keep artifact retention short for disposable debug builds.
 - Do not publish releases or deploy infrastructure from pull-request workflows.
+- Verify the Wrapper JAR checksum whenever the Wrapper binary changes.
 
 ## Current limitations
 
-- The repository does not yet contain a Gradle wrapper; CI installs the pinned Gradle version directly.
-- First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21). The Android debug unit-test task, debug APK assembly and artifact upload all passed. Physical-device validation remains outstanding.
+- First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21). The Android debug unit-test task, debug APK assembly and artifact upload all passed.
 - Physical-device validation remains a local acceptance step. A hosted Linux runner cannot prove the app behaves correctly on the owner's Android hardware.
 
 ## Future improvements
 
 Only add these when they provide real value:
-- Gradle wrapper and wrapper validation.
 - Static analysis and formatting checks.
 - Android instrumented tests on an emulator.
 - Dependency vulnerability and license checks.

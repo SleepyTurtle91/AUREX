@@ -44,14 +44,15 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.13'
+
+      - name: Verify Gradle Wrapper JAR
+        run: echo "81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f  gradle/wrapper/gradle-wrapper.jar" | sha256sum --check
 
       - name: Run Android unit tests (including commonTest)
-        run: gradle :composeApp:testDebugUnitTest --stacktrace --info
+        run: ./gradlew :composeApp:testDebugUnitTest --stacktrace
 
       - name: Assemble Android debug APK
-        run: gradle :composeApp:assembleDebug --stacktrace
+        run: ./gradlew :composeApp:assembleDebug --stacktrace
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v5

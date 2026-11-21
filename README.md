@@ -6,6 +6,18 @@ AUREX is a personal, modular business software ecosystem designed to bring comme
 
 AUREX is an independent project. It is not a rename or continuation of FlashPOS, and it is not a direct fork of ExtroPOSv2. Earlier projects may be consulted as reference material, but AUREX is developed from a clean foundation.
 
+## Current implementation
+
+The first Android/KMP foundation is being established on the `foundation/kmp-android-poc` branch.
+
+- Kotlin Multiplatform and Compose Multiplatform
+- Android-first application target
+- Koin dependency injection
+- Common application logic and common tests
+- Dependency versions centralized in the Gradle version catalog
+
+See [Foundation POC](docs/FOUNDATION_POC.md) for setup and acceptance criteria. GitHub Actions runs the initial Android CI checks; see [CI documentation](docs/CI.md).
+
 ## Product ecosystem
 
 | Product | Responsibility | Status |
@@ -31,20 +43,6 @@ Product names describe intended capabilities, not a promise that every product w
 8. **Testability:** critical rules are verified independently of UI and infrastructure.
 9. **Incremental delivery:** establish a small verified foundation before expanding product scope.
 
-## Technology direction
-
-AUREX uses **Kotlin Multiplatform (KMP)** as its codebase strategy.
-
-- **Android first:** Kotlin with Compose Multiplatform UI and native Android integration where required.
-- **Desktop:** Compose Multiplatform/JVM is a planned companion target, useful for administration workflows and development.
-- **iOS:** a future target; platform-specific integrations will remain native where appropriate.
-- **Web:** not part of the initial client commitment. AUREX Cloud's web experience will be decided separately.
-- **Backend:** Kotlin/JVM with Ktor is the leading candidate, but remains a separate deployment and architecture decision.
-
-The initial shared layer will contain domain rules, application use cases, contracts and suitable data logic. Platform-specific hardware, lifecycle, storage paths and operating-system APIs belong in platform source sets or adapters.
-
-See [Technical Architecture](docs/TECHNICAL_ARCHITECTURE.md) and [ADR 0004](docs/adr/0004-kotlin-multiplatform-platform-strategy.md).
-
 ## Documentation
 
 - [Project vision](docs/PRODUCT_VISION.md)
@@ -52,20 +50,6 @@ See [Technical Architecture](docs/TECHNICAL_ARCHITECTURE.md) and [ADR 0004](docs
 - [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md)
 - [Development contract](DEVELOPMENT_CONTRACT.md)
 - [Roadmap](ROADMAP.md)
+- [Working domain map (draft)](docs/DOMAIN_MAP.md)
 - [ADR index](docs/adr/README.md)
 - [Project governance](CONTRIBUTING.md)
-
-## Current phase
-
-**Phase 0 — Foundation and product definition.**
-
-No production application modules have been committed yet. The KMP direction is selected; detailed dependency versions, module boundaries, financial arithmetic implementation and backend topology must be validated before application code begins.
-
-## Legacy references
-
-- [ExtroPOSv2](https://github.com/SleepyTurtle91/ExtroPOSv2) — reference implementation only.
-- FlashPOS — separate commercial product; not part of this repository.
-
-## License
-
-No open-source license has been selected yet. Until one is added, all rights are reserved by the repository owner.

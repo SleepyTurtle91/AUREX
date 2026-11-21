@@ -1,11 +1,9 @@
 # Project Governance and Contribution Guide
 
 ## Working model
-
 AUREX is developed incrementally. Changes should be reviewable, tested and consistent with the documented architecture.
 
 ## Change workflow
-
 1. Confirm the requirement and its acceptance criteria.
 2. Inspect the existing implementation and relevant architecture decisions.
 3. Create or update an issue for non-trivial work.
@@ -17,7 +15,6 @@ AUREX is developed incrementally. Changes should be reviewable, tested and consi
 No contributor or automation may merge a pull request without explicit owner approval.
 
 ## Required pull request content
-
 - Why the change is needed.
 - What changed and what did not change.
 - Business rules affected.
@@ -28,7 +25,6 @@ No contributor or automation may merge a pull request without explicit owner app
 - Rollback or recovery considerations for risky changes.
 
 ## Engineering expectations
-
 - Keep changes focused.
 - Avoid speculative abstractions and unnecessary dependencies.
 - Preserve domain boundaries.
@@ -38,5 +34,4 @@ No contributor or automation may merge a pull request without explicit owner app
 - Do not mark work complete without implementation and verification evidence.
 
 ## Decision authority
-
 The project owner has final authority over product scope, architecture decisions, releases and merges. A recommendation or automated check is not an approval.

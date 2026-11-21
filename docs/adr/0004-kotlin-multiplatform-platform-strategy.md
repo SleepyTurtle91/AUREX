@@ -4,13 +4,11 @@
 - **Date:** 2026-11-21
 
 ## Context
-
 AUREX is intended to become a multi-product business software ecosystem. Android is the first practical client target, but shared domain logic and selected user experiences should be reusable across future desktop and mobile clients. The project owner selected Kotlin Multiplatform.
 
 Kotlin Multiplatform (KMP) is the code-sharing technology. It does not require every platform to use the same UI or every implementation to be portable.
 
 ## Decision
-
 1. Use Kotlin Multiplatform with Gradle Kotlin DSL as the project codebase strategy.
 2. Build and validate Android first.
 3. Use Compose Multiplatform for shared UI where it provides a good fit, initially for Android and planned desktop. iOS is a future target and may combine Compose Multiplatform UI with native SwiftUI/UIKit integration as requirements dictate.
@@ -23,7 +21,6 @@ Kotlin Multiplatform (KMP) is the code-sharing technology. It does not require e
 10. Treat the backend as a separate deployment. Kotlin/JVM with Ktor is the leading candidate, but is not selected by this ADR.
 
 ## Platform rollout
-
 | Platform | Direction | Timing |
 |---|---|---|
 | Android | Primary application target; native APIs and Compose Multiplatform UI | First |
@@ -33,11 +30,9 @@ Kotlin Multiplatform (KMP) is the code-sharing technology. It does not require e
 | Server | Kotlin/JVM candidate; independent server deployment | Separate ADR |
 
 ## Financial portability constraint
-
 The existing financial arithmetic decision requires exact decimal arithmetic and prohibits Float/Double for money. JVM `java.math.BigDecimal` is not a common KMP type. Therefore the shared financial domain must expose a platform-neutral exact-decimal abstraction. A KMP-compatible implementation must be selected and tested in a separate ADR before production financial calculations are implemented. JVM-only BigDecimal may be used inside a JVM adapter, but must not leak into common domain APIs.
 
 ## Consequences
-
 - One Kotlin language and Gradle toolchain can serve multiple targets.
 - Domain rules and selected UI can be shared without sacrificing access to native APIs.
 - Platform source sets and adapters remain necessary.
@@ -47,13 +42,11 @@ The existing financial arithmetic decision requires exact decimal arithmetic and
 - Exact library versions will be pinned together after a reproducible toolchain proof of concept.
 
 ## Alternatives considered
-
 - Flutter/Dart for shared UI and logic: not selected; the owner chose KMP.
 - Native Android-only Kotlin: not selected because future code sharing is a stated ecosystem goal.
 - Fully shared UI and infrastructure across every platform from day one: rejected as excessive coupling and scope.
 
 ## References
-
 - [Kotlin Multiplatform overview](https://kotlinlang.org/docs/multiplatform/kmp-overview.html)
 - [Kotlin Multiplatform platform stability](https://kotlinlang.org/docs/multiplatform/supported-platforms.html)
 - [Compose Multiplatform and Jetpack Compose](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-and-jetpack-compose.html)

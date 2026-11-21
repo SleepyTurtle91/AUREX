@@ -35,14 +35,15 @@ The following candidates are research inputs, not approved dependencies:
 
 **Risks:** different platform backends can have different edge conditions; the default division operator is not appropriate for financial business rules unless wrapped and prohibited. Its current repository toolchain is newer than AUREX's API 36 baseline, so compatibility must be verified before adoption.
 
-### 3. IonsPin Kotlin Multiplatform BigNum 0.3.10
+### 3. IonsPin Kotlin Multiplatform BigNum 0.4.0
 
-- Maven coordinate: `com.ionspin.kotlin:bignum:0.3.10`.
+- Maven coordinate candidate: `com.ionspin.kotlin:bignum:0.4.0`.
 - Apache-2.0 license.
-- Established KMP project with a larger community footprint than the newer candidates.
-- Includes arbitrary precision `BigDecimal` and `BigInteger` support across KMP targets.
+- Established KMP library (approximately 479 GitHub stars and 50 forks at review time); latest tagged stable release is 0.4.0, published 14 November 2026.
+- Version 0.4.0 updates the library to Kotlin 2.4.21, matching the AUREX Kotlin baseline, and contains fixes to decimal-mode propagation.
+- Includes arbitrary-precision `BigDecimal` and `BigInteger` implementations, a broad target matrix, and JVM comparison tests against Java BigDecimal.
 
-**Risks:** the latest stable release identified in the release history is from July 2024 and targets Kotlin 2.0.0. It may still work, but active compatibility with the current Kotlin 2.4.21 and Gradle toolchain must be demonstrated. Historical BigDecimal scale/rounding bug fixes make AUREX-specific edge testing essential.
+**Risks:** API remains pre-1.0 and the project README still shows the stale installation snippet for 0.3.10. Version 0.4.0 contains breaking changes: when only one operand has a decimal mode, that mode now flows to the result; `scale()` no longer supplies a default HALF_AWAY rounding mode when no rounding mode is set; malformed strings now throw NumberFormatException. The value-carried `DecimalMode` model must be tested against AUREX's explicit per-operation rounding contract. Confirm the 0.4.0 Maven Central metadata and Android/JVM variant resolution before adding it to the POC. Never create financial values through its Float/Double conversion APIs.
 
 ## Proposed evaluation decision
 

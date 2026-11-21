@@ -17,15 +17,16 @@ This roadmap is directional. A checkbox is only completed when implementation an
 - [ ] Validate Room KMP on intended targets and test migration strategy.
 - [ ] Select a multiplatform exact-decimal implementation for shared financial rules.
 - [ ] Decide backend deployment topology and API boundaries.
-- [ ] Pin a compatible Kotlin, Gradle, Compose and Android toolchain.
-- [ ] Define CI build, test and quality gates.
+- [x] Pin a compatible Kotlin, Gradle, Compose and Android toolchain; validate it with a clean CI build.
+- [x] Define CI build and test gates.
+- [ ] Add static analysis, formatting and dependency quality gates.
 
 ## Phase 1 — Shared platform foundation
 - [ ] Establish Gradle multi-module KMP build.
-- [ ] Establish Android application target.
+- [x] Establish Android application target.
 - [ ] Establish common domain and application modules.
 - [ ] Establish commonTest and platform test conventions.
-- [ ] Establish dependency injection and platform composition roots.
+- [x] Establish the initial Koin dependency graph and Android application composition root.
 - [ ] Identity, authentication and authorization foundations.
 - [ ] Tenant, company, branch, location and terminal model.
 - [ ] Configuration and capability model.

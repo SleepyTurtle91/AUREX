@@ -56,6 +56,18 @@ adb install -r composeApp/build/outputs/apk/debug/composeApp-debug.apk
 
 The Android application ID is `com.aurex.app`.
 
+## Physical-device smoke test
+
+1. Enable USB debugging on an Android phone or tablet and connect it to the development computer.
+2. Accept the USB debugging authorization prompt on the device.
+3. Run the repository's one-command install and launch helper:
+
+```bash
+./scripts/android-smoke-test.sh
+```
+
+The script builds the debug APK when it is missing, installs it with ADB, and sends the launch intent. When multiple Android devices are connected, set `ANDROID_SERIAL` to the intended device serial before running the script. Confirm that the welcome screen displays AUREX, `Business. Connected.`, and the foundation status message.
+
 ## Continuous integration
 
 GitHub Actions is configured in `.github/workflows/android-ci.yml` to run common/platform tests and assemble a debug APK for pull requests and pushes. The first green run is still required before CI is considered verified. See [CI documentation](CI.md).
@@ -66,7 +78,7 @@ GitHub Actions is configured in `.github/workflows/android-ci.yml` to run common
 - [ ] Gradle project imports without sync errors.
 - [ ] Common test passes.
 - [ ] Android debug APK builds.
-- [ ] App launches on a physical Android device.
+- [ ] App launches on a physical Android device using `scripts/android-smoke-test.sh`.
 - [ ] Shared Compose screen renders.
 - [ ] Koin resolves `FoundationStatus` from common code.
 - [ ] Room KMP database proof-of-concept passes separately.

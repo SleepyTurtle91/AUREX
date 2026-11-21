@@ -36,7 +36,8 @@ The workflow uses GitHub-hosted runners and does not require deployment credenti
 
 ## Current limitations
 
-- First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21). The Android debug unit-test task, debug APK assembly and artifact upload all passed.
+- First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21).
+- Latest Wrapper-based CI validation: commit `a240d1aeba8172c67ff15f2d5ff15096848315ce` (2026-11-21). Wrapper JAR checksum verification, Android unit tests, debug APK assembly and artifact upload all passed.
 - Physical-device validation remains a local acceptance step. A hosted Linux runner cannot prove the app behaves correctly on the owner's Android hardware.
 
 ## Future improvements

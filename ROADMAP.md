@@ -8,15 +8,26 @@ This roadmap is directional. A checkbox is only completed when implementation an
 - [x] Define ecosystem product map.
 - [x] Establish project governance and development contract.
 - [x] Establish initial architecture principles and ADR process.
+- [x] Select Kotlin Multiplatform as the codebase strategy.
+- [x] Select Compose Multiplatform as the shared UI direction.
+- [x] Select Koin as the shared dependency-injection direction.
 - [ ] Define target users, business scenarios and non-goals.
 - [ ] Define tenant, company, branch, location and terminal vocabulary.
 - [ ] Define core domain map and bounded contexts.
 - [ ] Define security, audit and data-retention baseline.
-- [ ] Decide initial client and backend deployment topology.
+- [ ] Validate Room KMP on intended targets and test migration strategy.
+- [ ] Select a multiplatform exact-decimal implementation for shared financial rules.
+- [ ] Decide backend deployment topology and API boundaries.
+- [ ] Pin a compatible Kotlin, Gradle, Compose and Android toolchain.
 - [ ] Define CI build, test and quality gates.
 
 ## Phase 1 — Shared platform foundation
 
+- [ ] Establish Gradle multi-module KMP build.
+- [ ] Establish Android application target.
+- [ ] Establish common domain and application modules.
+- [ ] Establish commonTest and platform test conventions.
+- [ ] Establish dependency injection and platform composition roots.
 - [ ] Identity, authentication and authorization foundations.
 - [ ] Tenant, company, branch, location and terminal model.
 - [ ] Configuration and capability model.

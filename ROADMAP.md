@@ -10,9 +10,9 @@ This roadmap is directional. A checkbox is only completed when implementation an
 - [x] Select Kotlin Multiplatform as the codebase strategy.
 - [x] Select Compose Multiplatform as the shared UI direction.
 - [x] Select Koin as the shared dependency-injection direction.
-- [ ] Define target users, business scenarios and non-goals.
-- [ ] Define tenant, company, branch, location and terminal vocabulary.
-- [ ] Define core domain map and bounded contexts.
+- [ ] Define target users, business scenarios and non-goals (working assumptions drafted in [DOMAIN_MAP.md](docs/DOMAIN_MAP.md); owner review pending).
+- [ ] Define tenant, company, branch, location and terminal vocabulary (provisional glossary in [DOMAIN_MAP.md](docs/DOMAIN_MAP.md)).
+- [ ] Define core domain map and bounded contexts (proposed contexts in [DOMAIN_MAP.md](docs/DOMAIN_MAP.md)).
 - [ ] Define security, audit and data-retention baseline.
 - [ ] Validate Room KMP on intended targets and test migration strategy (candidate and POC acceptance criteria documented in [ADR 0005](docs/adr/0005-room-kmp-persistence-evaluation.md)).
 - [ ] Select a multiplatform exact-decimal implementation for shared financial rules (candidate bake-off and test contract documented in [ADR 0006](docs/adr/0006-decimal-implementation-evaluation.md)).

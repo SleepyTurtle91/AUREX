@@ -50,5 +50,6 @@ Product names describe intended capabilities, not a promise that every product w
 - [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md)
 - [Development contract](DEVELOPMENT_CONTRACT.md)
 - [Roadmap](ROADMAP.md)
+- [Working domain map (draft)](docs/DOMAIN_MAP.md)
 - [ADR index](docs/adr/README.md)
 - [Project governance](CONTRIBUTING.md)

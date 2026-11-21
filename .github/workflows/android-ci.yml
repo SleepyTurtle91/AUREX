@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - main
-      - foundation/kmp-android-poc
   workflow_dispatch:
 
 permissions:
@@ -49,7 +48,7 @@ jobs:
           gradle-version: '8.13'
 
       - name: Run common and platform tests
-        run: gradle :composeApp:allTests --stacktrace
+        run: gradle :composeApp:allTests --stacktrace --info
 
       - name: Assemble Android debug APK
         run: gradle :composeApp:assembleDebug --stacktrace

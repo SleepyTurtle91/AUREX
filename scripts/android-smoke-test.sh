@@ -20,16 +20,19 @@ if [[ -n "${ANDROID_SERIAL:-}" ]]; then
   ADB+=(-s "$ANDROID_SERIAL")
 fi
 
-if [[ ! -f "$APK_PATH" ]]; then
-  echo "Debug APK not found. Building AUREX with the checked-in Gradle Wrapper..."
-  "$ROOT_DIR/gradlew" -p "$ROOT_DIR" :composeApp:assembleDebug
-fi
-
 if ! "${ADB[@]}" get-state >/dev/null 2>&1; then
   echo "ERROR: No single authorized Android device is available." >&2
   echo "Connect one device, accept the USB debugging prompt, and check 'adb devices'." >&2
   echo "For multiple devices, set ANDROID_SERIAL to the target device serial." >&2
   adb devices || true
+  exit 1
+fi
+
+echo "Building the current AUREX source with the checked-in Gradle Wrapper..."
+"$ROOT_DIR/gradlew" -p "$ROOT_DIR" :composeApp:assembleDebug
+
+if [[ ! -f "$APK_PATH" ]]; then
+  echo "ERROR: Expected debug APK was not produced at $APK_PATH" >&2
   exit 1
 fi
 

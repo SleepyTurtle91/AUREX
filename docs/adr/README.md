@@ -16,7 +16,12 @@ Each ADR should include:
 
 ## Index
 
-No architecture decisions have been formally accepted yet.
+| ADR | Decision | Status |
+|---|---|---|
+| [0001](0001-domain-oriented-modular-architecture.md) | Domain-oriented modular architecture | Accepted |
+| [0002](0002-offline-first-local-continuity.md) | Offline-first local continuity | Accepted |
+| [0003](0003-decimal-financial-arithmetic.md) | Decimal financial arithmetic | Accepted |
+| [0004](0004-kotlin-multiplatform-platform-strategy.md) | Kotlin Multiplatform platform strategy | Accepted |
 
 ## Decision discipline
 

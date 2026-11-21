@@ -10,7 +10,7 @@ Workflow: `.github/workflows/android-ci.yml`
 
 Triggers:
 - Pull requests targeting `main`.
-- Pushes to `main` and `foundation/kmp-android-poc`.
+- Pushes to `main` (feature branches are validated through their pull requests, avoiding duplicate runs).
 - Manual dispatch.
 
 Checks:

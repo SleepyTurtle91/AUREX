@@ -23,7 +23,7 @@ Product names describe intended capabilities, not a promise that every product w
 
 1. **Domain-first:** model business rules before screens and infrastructure.
 2. **Offline-first:** local operations must remain reliable without internet access.
-3. **Financial precision:** use decimal arithmetic for money; never use binary floating-point for financial values.
+3. **Financial precision:** use exact decimal arithmetic for money; never use binary floating-point for financial values.
 4. **Auditability:** important business decisions and financial mutations must be traceable.
 5. **Modularity:** shared capabilities have explicit contracts and dependency direction.
 6. **Branch-aware:** tenant, company, branch, location and terminal scope must be explicit in the domain model.
@@ -31,14 +31,25 @@ Product names describe intended capabilities, not a promise that every product w
 8. **Testability:** critical rules are verified independently of UI and infrastructure.
 9. **Incremental delivery:** establish a small verified foundation before expanding product scope.
 
-## Initial technology direction
+## Technology direction
 
-The first client is expected to be Android using Kotlin and Jetpack Compose. Room is the planned local persistence layer. Backend and cloud technology choices remain open until requirements and architecture records justify them. Ktor is a candidate, not yet a binding decision.
+AUREX uses **Kotlin Multiplatform (KMP)** as its codebase strategy.
+
+- **Android first:** Kotlin with Compose Multiplatform UI and native Android integration where required.
+- **Desktop:** Compose Multiplatform/JVM is a planned companion target, useful for administration workflows and development.
+- **iOS:** a future target; platform-specific integrations will remain native where appropriate.
+- **Web:** not part of the initial client commitment. AUREX Cloud's web experience will be decided separately.
+- **Backend:** Kotlin/JVM with Ktor is the leading candidate, but remains a separate deployment and architecture decision.
+
+The initial shared layer will contain domain rules, application use cases, contracts and suitable data logic. Platform-specific hardware, lifecycle, storage paths and operating-system APIs belong in platform source sets or adapters.
+
+See [Technical Architecture](docs/TECHNICAL_ARCHITECTURE.md) and [ADR 0004](docs/adr/0004-kotlin-multiplatform-platform-strategy.md).
 
 ## Documentation
 
 - [Project vision](docs/PRODUCT_VISION.md)
 - [Architecture principles](docs/ARCHITECTURE.md)
+- [Technical architecture](docs/TECHNICAL_ARCHITECTURE.md)
 - [Development contract](DEVELOPMENT_CONTRACT.md)
 - [Roadmap](ROADMAP.md)
 - [ADR index](docs/adr/README.md)
@@ -48,7 +59,7 @@ The first client is expected to be Android using Kotlin and Jetpack Compose. Roo
 
 **Phase 0 — Foundation and product definition.**
 
-No production application modules have been committed yet. Architecture, domain boundaries, operational assumptions and technology decisions must be documented before implementation begins.
+No production application modules have been committed yet. The KMP direction is selected; detailed dependency versions, module boundaries, financial arithmetic implementation and backend topology must be validated before application code begins.
 
 ## Legacy references
 

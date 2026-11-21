@@ -18,8 +18,9 @@ Checks:
 2. Verify the checked-in Gradle Wrapper JAR against Gradle's published SHA-256 checksum.
 3. Use the pinned Gradle 8.13 distribution through `./gradlew`; its distribution SHA-256 is pinned in `gradle/wrapper/gradle-wrapper.properties`.
 4. Run Android host-side unit tests, including the `commonTest` source set, with `./gradlew :composeApp:testDebugUnitTest`.
-5. Build the Android debug APK with `./gradlew :composeApp:assembleDebug`.
-6. Upload the debug APK as a seven-day workflow artifact.
+5. Validate the Android device smoke-test helper with `bash -n scripts/android-smoke-test.sh`.
+6. Build the Android debug APK with `./gradlew :composeApp:assembleDebug`.
+7. Upload the debug APK as a seven-day workflow artifact.
 
 The workflow uses GitHub-hosted runners and does not require deployment credentials, signing keys or paid external services. The Gradle setup action caches wrapper distributions and dependencies.
 
@@ -37,7 +38,7 @@ The workflow uses GitHub-hosted runners and does not require deployment credenti
 ## Current limitations
 
 - First successful Android CI validation: commit `c838407734dcdcded0f04a2a2424698bd361d984` (2026-11-21).
-- Latest Wrapper-based CI validation: commit `a240d1aeba8172c67ff15f2d5ff15096848315ce` (2026-11-21). Wrapper JAR checksum verification, Android unit tests, debug APK assembly and artifact upload all passed.
+- Latest CI validation: commit `bbcf097ff1aaeca0300bf2fe4d90b0ef20b930b9`, workflow run [44868709823](https://github.com/SleepyTurtle91/AUREX/actions/runs/44868709823) (2026-11-21). Wrapper JAR checksum verification, smoke-test script syntax check, Android unit tests, debug APK assembly and artifact upload all passed.
 - Physical-device validation remains a local acceptance step. A hosted Linux runner cannot prove the app behaves correctly on the owner's Android hardware.
 
 ## Future improvements

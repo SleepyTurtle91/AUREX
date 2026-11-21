@@ -16,7 +16,7 @@ Triggers:
 Checks:
 1. Set up JDK 17 and Android SDK Platform 36.
 2. Install Gradle 8.13 through the Gradle setup action.
-3. Run `gradle :composeApp:allTests`.
+3. Run Android host-side unit tests, including the `commonTest` source set, with `gradle :composeApp:testDebugUnitTest`.
 4. Build the Android debug APK with `gradle :composeApp:assembleDebug`.
 5. Upload the debug APK as a seven-day workflow artifact.
 

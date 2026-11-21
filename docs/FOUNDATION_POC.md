@@ -70,18 +70,18 @@ The script builds the debug APK when it is missing, installs it with ADB, and se
 
 ## Continuous integration
 
-GitHub Actions is configured in `.github/workflows/android-ci.yml` to run common/platform tests and assemble a debug APK for pull requests and pushes. The first green run is still required before CI is considered verified. See [CI documentation](CI.md).
+GitHub Actions has successfully verified the checked-in Gradle Wrapper, smoke-test script syntax, Android unit-test variant (including `commonTest`), debug APK assembly and artifact upload on commit `bbcf097ff1aaeca0300bf2fe4d90b0ef20b930b9` (run [44868709823](https://github.com/SleepyTurtle91/AUREX/actions/runs/44868709823)). See [CI documentation](CI.md).
 
 ## Acceptance checklist
 
 - [x] Gradle Wrapper is committed with verified JAR and distribution checksums.
 - [ ] Gradle project imports without sync errors.
-- [ ] Common test passes.
-- [ ] Android debug APK builds.
+- [x] Common test passes in the Android debug unit-test variant.
+- [x] Android debug APK builds in CI.
 - [ ] App launches on a physical Android device using `scripts/android-smoke-test.sh`.
 - [ ] Shared Compose screen renders.
 - [ ] Koin resolves `FoundationStatus` from common code.
 - [ ] Room KMP database proof-of-concept passes separately.
-- [x] GitHub Actions CI completes successfully on a pull request (verified on 2026-11-21; see workflow run 44867686852).
+- [x] GitHub Actions CI completes successfully on a pull request (verified on 2026-11-21; see latest wrapper-based workflow run 44868709823).
 
 Do not mark an item complete without a recorded build or device-test result.

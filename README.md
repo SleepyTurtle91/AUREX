@@ -16,7 +16,7 @@ The first Android/KMP foundation is being established on the `foundation/kmp-and
 - Common application logic and common tests
 - Dependency versions centralized in the Gradle version catalog
 
-See [Foundation POC](docs/FOUNDATION_POC.md) for setup and acceptance criteria.
+See [Foundation POC](docs/FOUNDATION_POC.md) for setup and acceptance criteria. GitHub Actions runs the initial Android CI checks; see [CI documentation](docs/CI.md).
 
 ## Product ecosystem
 
